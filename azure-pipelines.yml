@@ -7,7 +7,7 @@ trigger:
 - '*'
 
 pool:
-  name: 'Demo'
+  name: 'Demo1'
 
 variables:
   buildConfiguration: 'Release'
