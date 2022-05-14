@@ -11,6 +11,3 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-
-steps:
-  - script: dontnet build --configuration $(buildConfiguration)
