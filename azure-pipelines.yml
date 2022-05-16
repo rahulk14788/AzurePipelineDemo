@@ -30,12 +30,12 @@ stages:
           workingDir: 'ClientApp'
           customCommand: 'run build --prod'
 
-      - task: Npm@1
-        displayName: 'Test Client Application'
-        inputs:
-          command: 'custom'
-          workingDir: 'ClientApp'
-          customCommand: 'npm run test'
+      # - task: Npm@1
+      #   displayName: 'Test Client Application'
+      #   inputs:
+      #     command: 'custom'
+      #     workingDir: 'ClientApp'
+      #     customCommand: 'npm run test'
 
     - job: 'BuildDotNet'
       steps:
