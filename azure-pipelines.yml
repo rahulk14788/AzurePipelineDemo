@@ -4,17 +4,10 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- master
-- main
-- develop
-- feature/*
-- bugfix/*
-- hotfix/*
+- '*'
 
 pool:
   name: 'Demo'
-  artifaceName: drop
-  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
 
 variables:
   buildConfiguration: 'Release'
