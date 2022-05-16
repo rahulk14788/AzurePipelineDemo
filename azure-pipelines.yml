@@ -4,10 +4,17 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- '*'
+- master
+- main
+- develop
+- feature/*
+- bugfix/*
+- hotfix/*
 
 pool:
   name: 'Demo'
+  artifaceName: drop
+  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
 
 variables:
   buildConfiguration: 'Release'
@@ -56,6 +63,8 @@ stages:
           arguments: '--configuration $(buildConfiguration)  --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
           zipAfterPublish: true
 
+    - job: 'PublishArtifacts'
+      steps:
       - task: PublishBuildArtifacts@1
         displayName: 'Publish Artifacts'
         inputs:
