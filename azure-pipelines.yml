@@ -42,7 +42,7 @@ stages:
         inputs:
           command: 'custom'
           workingDir: 'ClientApp'
-          #customCommand: 'run test --watch=false'
+          customCommand: 'npm run test'
 
     - job: 'BuildDotNet'
       steps:
