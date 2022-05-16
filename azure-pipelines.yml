@@ -13,7 +13,7 @@ trigger:
 
 pool:
   name: 'Demo'
-  artifaceName: drop
+  artifactName: drop
   isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
 
 variables:
@@ -63,8 +63,6 @@ stages:
           arguments: '--configuration $(buildConfiguration)  --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
           zipAfterPublish: true
 
-    - job: 'PublishArtifacts'
-      steps:
       - task: PublishBuildArtifacts@1
         displayName: 'Publish Artifacts'
         inputs:
